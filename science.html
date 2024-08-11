@@ -1,42 +1,21 @@
-<!-- Science blog -->
 ---
 layout: default
-permalink: /science
+permalink: /science-blog/
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Science Blog</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<div class="home">
 
-<header>
-    <h1>Science Blog</h1>
-    <p>Discover the latest in Science.</p>
-</header>
+  <h1>Science Blog</h1>
 
-<div class="container">
-    <div class="article">
-        <img src="path_to_your_image1.jpg" alt="Article Image">
-        <h2>Article Title 1</h2>
-        <p><strong>Date:</strong> August 10, 2024 | <strong>Writer:</strong> John Doe</p>
-        <p>Body text for the first article. This is where the main content of the article goes. It can include text, images, and other media.</p>
-    </div>
-    <div class="article">
-        <img src="path_to_your_image2.jpg" alt="Article Image">
-        <h2>Article Title 2</h2>
-        <p><strong>Date:</strong> August 9, 2024 | <strong>Writer:</strong> Jane Smith</p>
-        <p>Body text for the second article. Each article can have its own image, title, and content.</p>
-    </div>
+  <ul class="posts">
+    {% for post in site.categories.science %}
+      <li>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
 </div>
-
-<footer>
-    &copy; 2024 Your Website Name. All Rights Reserved.
-</footer>
-
-</body>
-</html>
