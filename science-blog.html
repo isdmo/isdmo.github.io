@@ -4,9 +4,7 @@ permalink: /science-blog/
 ---
 
 <div class="home">
-
   <h1>Science Blog</h1>
-
   <ul class="posts">
     {% for post in site.categories.science %}
       <li>
@@ -15,7 +13,5 @@ permalink: /science-blog/
       </li>
     {% endfor %}
   </ul>
-
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
 </div>
