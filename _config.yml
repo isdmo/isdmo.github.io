@@ -1,11 +1,14 @@
-url: https://isdmo.github.io/
-baseurl:
+# url: https://isdmo.github.io/
+# baseurl:
 
 # Site settings
 title: ISDMO
 email: a.r.mofayezi@gmail.com
 description: "The Realms of Science, Arts, and Culture."
 
+relative_links:
+  enabled: true
+  collections: true
 
 # Team names, titles and social links
 people:
