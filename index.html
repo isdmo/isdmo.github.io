@@ -3,48 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Customized Website</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Your Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+        }
+        .science { background-color: red; }
+        .culture { background-color: blue; }
+        .arts { background-color: yellow; }
+        .blog-post {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #f9f9f9;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Welcome to My Website</h1>
-            <p>Exploring Science, Arts, and Culture</p>
-        </div>
-    </header>
+    <nav>
+        <a href="#stories">Stories</a>
+        <a href="#reviving">Reviving</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-    <section id="services">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <div class="service-box">
-                        <h4 class="service-heading science-heading">Science</h4>
-                        <p class="text-muted">World of scientific journeys in diverse fields of basic and applied sciences. <a href="science-blog.html">Read more</a></p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-box">
-                        <h4 class="service-heading culture-heading">Culture</h4>
-                        <p class="text-muted">Stories of cultures from the past and present. <a href="culture-blog.html">Read more</a></p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-box">
-                        <h4 class="service-heading arts-heading">Arts</h4>
-                        <p class="text-muted">Showcasing the intersection of culture and science through art. <a href="arts-blog.html">Read more</a></p>
-                    </div>
-                </div>
-            </div>
+    <section id="stories">
+        <h1>Stories</h1>
+        <div>
+            <h2 class="science">Science</h2>
+            <p>Exploring the world of scientific discoveries, innovations, and the lives of scientists across various fields of basic and applied sciences.</p>
+            <a href="science.html">Read more</a>
+        </div>
+        <div>
+            <h2 class="culture">Culture</h2>
+            <p>Stories that reflect the richness of cultures from different nations, organizations, and individuals, the way science is showcased.</p>
+            <a href="culture.html">Read more</a>
+        </div>
+        <div>
+            <h2 class="arts">Arts</h2>
+            <p>The final step from science to society. Art's essential role in creative expression and innovation.</p>
+            <a href="arts.html">Read more</a>
         </div>
     </section>
 
-    <footer>
-        <div class="container text-center">
-            <p>© 2024 Your Website Name. All Rights Reserved.</p>
-        </div>
-    </footer>
+    <!-- Reviving, About, and Contact sections go here -->
 
-    <script src="js/scripts.js"></script>
 </body>
 </html>
