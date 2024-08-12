@@ -1,66 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        nav {
-            background-color: #333;
-            color: white;
-            padding: 1em;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-        section {
-            padding: 20px;
-        }
-        .science { background-color: red; }
-        .culture { background-color: blue; }
-        .arts { background-color: yellow; }
-        .blog-post {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin: 10px 0;
-            background-color: #f9f9f9;
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <a href="#stories">Stories</a>
-        <a href="#reviving">Reviving</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
+---
+layout: default
+---
 
-    <section id="stories">
-        <h1>Stories</h1>
-        <div>
-            <h2 class="science">Science</h2>
-            <p>Exploring the world of scientific discoveries, innovations, and the lives of scientists across various fields of basic and applied sciences.</p>
-            <a href="science.html">Read more</a>
-        </div>
-        <div>
-            <h2 class="culture">Culture</h2>
-            <p>Stories that reflect the richness of cultures from different nations, organizations, and individuals, the way science is showcased.</p>
-            <a href="culture.html">Read more</a>
-        </div>
-        <div>
-            <h2 class="arts">Arts</h2>
-            <p>The final step from science to society. Art's essential role in creative expression and innovation.</p>
-            <a href="arts.html">Read more</a>
-        </div>
-    </section>
+<div class="home">
 
-    <!-- Reviving, About, and Contact sections go here -->
+  <h1>Posts</h1>
 
-</body>
-</html>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
