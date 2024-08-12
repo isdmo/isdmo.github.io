@@ -1,57 +1,89 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+/* Reset CSS */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #f4f4f4;
+    color: #333;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Header */
 header {
-    background-color: #4CAF50; /* Green background for Science */
-    color: white;
-    padding: 10px 0;
-    text-align: center;
+    background: #333;
+    color: #fff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #0779e4 3px solid;
 }
 
-h1 {
+header h1 {
+    text-align: center;
     margin: 0;
     font-size: 36px;
 }
 
-p {
-    font-size: 18px;
-    color: #666;
+/* Service Section */
+#services {
+    padding: 40px 0;
+    background: #fff;
 }
 
-.container {
-    max-width: 1000px;
-    margin: 20px auto;
+.service-box {
+    background: #f9f9f9;
     padding: 20px;
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    border: #ddd 1px solid;
+    border-radius: 5px;
 }
 
-.article {
-    margin-bottom: 30px;
+.science-heading {
+    color: #28a745; /* Green */
 }
 
-.article h2 {
-    font-size: 28px;
-    color: #333;
+.culture-heading {
+    color: #007bff; /* Blue */
 }
 
-.article img {
+.arts-heading {
+    color: #ffc107; /* Yellow */
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Posts */
+.post {
+    background: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    border: #ddd 1px solid;
+}
+
+.post img {
     max-width: 100%;
     height: auto;
-    display: block;
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: white;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+.post .meta {
+    color: #777;
+    font-size: 14px;
 }
