@@ -54,6 +54,13 @@ layout: default
             on
             {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}            
           </p>
+          {% if post.tags and post.tags.size > 0 %}
+            <div class="post-tags">
+              {% for tag in post.tags %}
+                <a class="badge badge-secondary mr-1" href="{{ '/tags#' | append: tag | relative_url }}">{{ tag }}</a>
+              {% endfor %}
+            </div>
+          {% endif %}
         </article>
 
         <hr>

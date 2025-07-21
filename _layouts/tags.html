@@ -3,22 +3,82 @@ layout: default
 title: Tags
 ---
 
-<h1>Tags</h1>
-<ul>
-  {% for tag in site.tags %}
-    <li>
-      <a href="#{{ tag[0] }}">{{ tag[0] }}</a> ({{ tag[1].size }})
-    </li>
-  {% endfor %}
-</ul>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{ site.tags_bg | default: '/img/bg-tags.jpg' | prepend: site.baseurl | replace: '//', '/' }}')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="page-heading">
+          <h1>Tags</h1>
+          <span class="subheading">Browse posts by topic</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-{% for tag in site.tags %}
-  <h2 id="{{ tag[0] }}">{{ tag[0] }}</h2>
-  <ul>
-    {% for post in tag[1] %}
-      <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-{% endfor %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="card-title">All Tags</h3>
+          <ul class="list-inline">
+            <li class="list-inline-item mb-2">
+              <a class="badge badge-info tag-link" href="#all">All</a>
+            </li>
+            {% for tag in site.tags %}
+              <li class="list-inline-item mb-2">
+                <a class="badge badge-primary tag-link" href="#{{ tag[0] }}">{{ tag[0] }}</a>
+                <span class="text-muted">({{ tag[1].size }})</span>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div id="posts-list">
+        {% for post in site.posts %}
+          {% assign post_tags = post.tags | join: ',' %}
+          <div class="card mb-4 post-card" data-tags="{{ post_tags }}">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">{{ post.title }}</a>
+                <span class="text-muted float-right">{{ post.date | date: '%B %d, %Y' }}</span>
+                <span class="badge badge-secondary ml-2">{{ post.tags | join: ', ' }}</span>
+              </li>
+            </ul>
+          </div>
+        {% endfor %}
+      </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          function filterPostsByTag(tag) {
+            document.querySelectorAll('.post-card').forEach(function(card) {
+              if (!tag || tag === 'all' || card.dataset.tags.includes(tag)) {
+                card.style.display = '';
+              } else {
+                card.style.display = 'none';
+              }
+            });
+          }
+
+          function getTagFromHash() {
+            return window.location.hash ? decodeURIComponent(window.location.hash.substring(1)) : 'all';
+          }
+
+          window.addEventListener('hashchange', function() {
+            filterPostsByTag(getTagFromHash());
+          });
+
+          // Initial filter on page load
+          filterPostsByTag(getTagFromHash());
+        });
+      </script>
+
+    </div>
+  </div>
+</div>
